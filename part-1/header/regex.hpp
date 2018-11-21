@@ -1,7 +1,7 @@
 #include <string.h>
 
-#ifndef REGEX_H
-#define REGEX_H
+#ifndef REGEX_HPP
+#define REGEX_HPP
 
 /*
  * Checks whether the character is a letter by verifying it is
@@ -27,9 +27,7 @@ bool is_digit(char c);
  * @return whether the string is a reserved word
  * @param s
  */
-bool is_reserved_word( std::string s ) {
-    
-}
+bool is_reserved_word( std::string s );
 
 /*
  * Checks whether the string is an integer by verifying it is

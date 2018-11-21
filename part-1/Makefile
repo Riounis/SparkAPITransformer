@@ -7,7 +7,7 @@ parser:
     $(CXX)
 
 test:
-    $(CXX)
+    $(CXX) test_main.cpp
 
 .PHONY clean
 

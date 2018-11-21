@@ -1,4 +1,4 @@
-#include "regex.h"
+#include "regex.hpp"
 
 bool is_letter( char c ) {
     if ( (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_' ) {
