@@ -1,1 +1,1 @@
-sc.textFile("helloworld.txt").flatMap(line => """[\p{Punct}]""".r.replaceAllIn(line, "").split(" ")).map(word => (word.capitalize, 1)).sortByKey(true, 0).keys.foreach(println)
+sc.textFile("helloworld.txt").map(line => 1).reduce((a:Int, b:Int) => a+b)
