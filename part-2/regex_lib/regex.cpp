@@ -19,7 +19,7 @@ bool is_reserved_word( std::string s ) {
 }
 
 bool is_integer( std::string s ) {
-    std::string::iterator it = s.begin();
+    iterator it = s.begin();
     while ( it != s.end() ) {
         if ( !is_digit( *it ) ) {
             return false;
@@ -53,7 +53,7 @@ bool is_number( std::string s ) {
 }
 
 bool is_identifier( std::string s ) {
-    std::string::iterator it = s.begin();
+    iterator it = s.begin();
     if ( !is_letter( *it ) ) {
         return false;
     }
