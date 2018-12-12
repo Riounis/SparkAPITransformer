@@ -1,26 +1,18 @@
 CC := g++
+TARGET := bin/scanner
 SRCDIR := src
-BUILDDIR := build
-TARGET := bin/main
 
 SRCEXT := cpp
-SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+SOURCES := src/regex.cpp src/scan.cpp src/scanner.cpp src/token.cpp 
 LIB := -L lib
 INC := -I include
 
 $(TARGET):
 	@echo "Linking..."
-	@echo "$(CC) $^ -o $(TARGET) $(SOURCES) $(LIB)"; $(CC) $^ -o $(TARGET) $(SOURCES) $(LIB)
-
-$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
-	@mkdir -p $(BUILDDIR)
-	@echo " $(CC) $(INC) -c -o"; $(CC) $(CFLAGS) $(INC) -c -o
+	@echo "$(CC) $^ -o $(TARGET) $(SOURCES) $(INC)"; $(CC) $^ -o $(TARGET) $(SOURCES) $(INC)
 
 clean:
 	@echo "Cleaning..."
-	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
-
-tests:
-	$(CC) $(CFLAGS) test/test_main.cpp $(INC) $(LIB) -o bin/test_main
+	@echo " $(RM) -r $(TARGET)"; $(RM) -r $(TARGET)
 
 .PHONY: clean
