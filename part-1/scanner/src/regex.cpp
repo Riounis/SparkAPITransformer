@@ -14,6 +14,23 @@ bool is_digit( char c ) {
     return false;
 }
 
+bool is_space(std::string s) {
+    std::string::iterator it = s.begin();
+    while ( it != s.end() ) {
+        if ( !is_whitespace( *it ) ) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool is_whitespace(char c) {
+    if ( c == ' ' || c == '\t' || c == '\n' ) {
+        return true;
+    }
+    return false;
+}
+
 bool is_reserved_word( std::string s ) {
     return false;
 }
@@ -74,9 +91,21 @@ bool is_string( std::string s ) {
     return false;
 }
 
-bool is_symbol( char c ) {
+bool is_symbol_char( char c ) {
     if ( !is_digit( c ) && !is_letter( c ) ) {
         return true;
     }
     return false;
 }
+
+bool is_symbol( std::string s ) {
+    std::string::iterator it = s.begin();
+    while ( it != s.end() ) {
+        if ( !is_symbol_char( *it ) ) {
+            return false;
+        }
+        it++;
+    }
+    return true;
+}
+

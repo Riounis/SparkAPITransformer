@@ -5,18 +5,16 @@ TARGET := bin/main
 
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
-OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g
 LIB := -L lib
 INC := -I include
 
-$(TARGET): $(OBJECTS)
+$(TARGET):
 	@echo "Linking..."
-	@echo "$(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
+	@echo "$(CC) $^ -o $(TARGET) $(SOURCES) $(LIB)"; $(CC) $^ -o $(TARGET) $(SOURCES) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
-	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
+	@echo " $(CC) $(INC) -c -o"; $(CC) $(CFLAGS) $(INC) -c -o
 
 clean:
 	@echo "Cleaning..."
