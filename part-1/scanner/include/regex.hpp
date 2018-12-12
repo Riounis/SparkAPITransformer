@@ -1,9 +1,9 @@
+#ifndef REGEX_HPP
+#define REGEX_HPP
+
 #include <string>
 #include <iostream>
 #include <iterator>
-
-#ifndef REGEX_HPP
-#define REGEX_HPP
 
 /*
  * Checks whether the character is a letter by verifying it is
@@ -22,6 +22,22 @@ bool is_letter(char c);
  * @param c
  */
 bool is_digit(char c);
+
+/*
+ * Checks whether the string given is composed of whitespace
+ *
+ * @return whether string is whitespace
+ * @param s
+ */
+bool is_space(std::string s);
+
+/*
+ * Checks whether the character given is a whitespace character
+ *
+ * @return whether the given character is whitespace
+ * @param c
+ */
+bool is_whitespace(char c);
 
 /*
  * Checks whether the string is a reserved word in the language.
@@ -83,6 +99,15 @@ bool is_string(std::string s);
  * @return whether the character is a symbol
  * @param c
  */
-bool is_symbol(char c);
+bool is_symbol_char(char c);
+
+/*
+ * Checks whether the string is a symbol by verifying its characters are
+ * not a letter or digit.
+ *
+ * @return whether the string is a symbol
+ * @param s
+ */
+bool is_symbol(std::string s);
 
 #endif
