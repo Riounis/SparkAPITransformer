@@ -12,8 +12,12 @@ int main(int argc, const char *argv[]) {
     std::ifstream in;
     std::string input((std::istreambuf_iterator<char>(in)),
                     (std::istreambuf_iterator<char>()));
+    std::vector<Pair> tokens = scan(input);
     std::ofstream out(fn + ".out");
-    out << input;
+    std::vector<Pair>::iterator it = tokens.begin();
+    for (it; it != tokens.end(); ++it) {
+        out << it->to_string();
+    }
     out.close();
     return 0;
 }

@@ -15,6 +15,27 @@
 typedef struct {
     int type;
     std::string token;
+    std::string to_string() {
+        std::string temp = "<"+token+", ";
+        if (type == RESWORD) {
+            temp += "Reserved Word>";
+        }
+        if (type == ID) {
+            temp += "Identifier>";
+        }
+        if (type == NUM) {
+            temp += "Number>";
+        }
+        if (type == STRING) {
+            temp += "String>";
+        }
+        if (type == SYM) {
+            temp += "Symbol>";
+        }
+        if (type == SPACE) {
+            temp += "Space>";
+        }
+    }
 } Pair;
 
 Pair get_token(std::string s);
