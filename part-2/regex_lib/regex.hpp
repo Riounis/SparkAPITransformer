@@ -1,6 +1,4 @@
-#include <string>
-#include <iostream>
-#include <iterator>
+#include <string.h>
 
 #ifndef REGEX_HPP
 #define REGEX_HPP
