@@ -2,7 +2,7 @@
 
 (
 echo ":paste"
-cat day.scala
+cat function.scala
 echo
 echo -e "\04"
 (cat test.scala; echo) | (
