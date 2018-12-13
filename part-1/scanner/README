@@ -1,0 +1,8 @@
+To compile and run this transformer, follow the steps below:
+1) navigate to the part-1/scanner directory
+2) run the command "make clean"
+3) run the command "make"
+4) navigate to the part-1/scanner/bin directory
+5) run scanner (or scanner.exe on windows) on your input file
+6) your output program will be placed in a a file with your input file's name
+followed by .out in the part-1/scanner/bin directory

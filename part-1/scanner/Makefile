@@ -3,7 +3,7 @@ TARGET := bin/scanner
 SRCDIR := src
 
 SRCEXT := cpp
-SOURCES := src/regex.cpp src/scan.cpp src/scanner.cpp src/token.cpp 
+SOURCES := src/regex.cpp src/scan.cpp src/scanner.cpp src/token.cpp src/replace.cpp
 LIB := -L lib
 INC := -I include
 
