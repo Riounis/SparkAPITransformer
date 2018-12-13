@@ -20,6 +20,7 @@ bool is_space(std::string s) {
         if ( !is_whitespace( *it ) ) {
             return false;
         }
+        it++;
     }
     return true;
 }
@@ -99,6 +100,9 @@ bool is_symbol_char( char c ) {
 }
 
 bool is_symbol( std::string s ) {
+    if (s.length() > 1) {
+        return false;
+    }
     std::string::iterator it = s.begin();
     while ( it != s.end() ) {
         if ( !is_symbol_char( *it ) ) {
