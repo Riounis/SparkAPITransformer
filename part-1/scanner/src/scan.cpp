@@ -1,8 +1,8 @@
 #include "scan.hpp"
 
-std::vector<Pair> scan(std::string s) {
+std::vector<Pair> *scan(std::string s) {
     //std::cout << "in scan\n";
-    std::vector<Pair> tokens;
+    std::vector<Pair> *tokens = new std::vector<Pair>;
     std::string::iterator it = s.begin();
     std::string current_token;
     bool string = false;
@@ -29,7 +29,7 @@ std::vector<Pair> scan(std::string s) {
         } else {
             string = false;
             std::cout << "encountered token " << get_token(current_token).to_string() << std::endl;
-            tokens.push_back(get_token(current_token));
+            tokens->push_back(get_token(current_token));
             //std::cout << "added token to list\n";
             current_token = *it;
             //std::cout << "set current token to " << current_token << std::endl;

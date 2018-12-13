@@ -1,11 +1,12 @@
 #include "replace.hpp"
 
 // replace <sc, identifier> with <spark, identifier>
-void replace_sc(std::vector<Pair> tokens) {
+void replace_sc(std::vector<Pair> *tokens) {
     std::cout << "in replace_sc\n";
-    std::vector<Pair>::iterator it = tokens.begin();
-    for (it; it != tokens.end(); ++it) {
+    std::vector<Pair>::iterator it = tokens->begin();
+    for (it; it != tokens->end(); ++it) {
         if (it->token == "sc") {
+            std::cout << "replacing sc with spark\n";
             it->token = "spark";
         }
     }
@@ -13,10 +14,11 @@ void replace_sc(std::vector<Pair> tokens) {
 
 // replace <textFile, identifier> 
 // with <read, identifier> <., symbol> <textFile, identifier>
-void replace_textfile(std::vector<Pair> tokens) {
+void replace_textfile(std::vector<Pair> *tokens) {
     std::cout << "in replace_textfile\n";
-    std::vector<Pair>::iterator it = tokens.begin();
-    for (it; it != tokens.end(); ++it) {
+    std::vector<Pair>::iterator it = tokens->begin();
+    for (it; it != tokens->end(); ++it) {
+    	std::cout << "top of for loop\n";
         if (it->token == "textFile") {
             Pair *read = new Pair;
             read->token = "read";
@@ -25,10 +27,12 @@ void replace_textfile(std::vector<Pair> tokens) {
             dot->token = ".";
             dot->type = SYM;
             std::cout << "haven't inserted yet\n";
-            tokens.insert(it, *read);
-            std::cout << "inserted read\n";
-            tokens.insert(it, *dot);
-            std::cout << "inserted dot\n";
+            tokens->insert(it, *read);
+            std::cout << it->token << std::endl;
+	    ++it;
+            tokens->insert(it, *dot);
+	    ++it;
+            std::cout << it->token << std::endl;
         }
     }
 }
@@ -37,10 +41,10 @@ void replace_textfile(std::vector<Pair> tokens) {
 // with <select, identifier> <(, symbol> <reduceAggregator, identifier> \n 
 // <(, symbol> ... <), symbol> <), symbol> <., symbol> <collect, identifier>
 // <(, symbol> <), symbol>
-void replace_reduce(std::vector<Pair> tokens) {
+void replace_reduce(std::vector<Pair> *tokens) {
     std::cout << "in replace_reduce\n";
-    std::vector<Pair>::iterator it = tokens.begin();
-    for (it; it != tokens.end(); ++it) {
+    std::vector<Pair>::iterator it = tokens->begin();
+    for (it; it != tokens->end(); ++it) {
         
     }
 }
@@ -49,10 +53,10 @@ void replace_reduce(std::vector<Pair> tokens) {
 // with <groupByKey, identifier> <_, identifier> <., symbol> <_1, identifier>
 // <), symbol> <., symbol> <agg, identifier> <(, symbol> 
 // <reduceByKeyAggregator, identifier> <(, symbol> ... <), symbol> <), symbol>
-void replace_reducebykey(std::vector<Pair> tokens) {
+void replace_reducebykey(std::vector<Pair> *tokens) {
     std::cout << "in replace_reducebykey\n";
-    std::vector<Pair>::iterator it = tokens.begin();
-    for (it; it != tokens.end(); ++it) {
+    std::vector<Pair>::iterator it = tokens->begin();
+    for (it; it != tokens->end(); ++it) {
         
     }
 }
@@ -64,10 +68,10 @@ void replace_reducebykey(std::vector<Pair> tokens) {
 // <., symbol> <orderBy, identifier> <(, symbol> <"_1", string> <), symbol>
 // <., symbol> <map, identifier> <(, symbol> <_, identifier> <., symbol>
 // <_2, identifier> <), symbol>
-void replace_sortby(std::vector<Pair> tokens) {
+void replace_sortby(std::vector<Pair> *tokens) {
     std::cout << "in replace_sortby\n";
-    std::vector<Pair>::iterator it = tokens.begin();
-    for (it; it != tokens.end(); ++it) {
+    std::vector<Pair>::iterator it = tokens->begin();
+    for (it; it != tokens->end(); ++it) {
         
     }
 }

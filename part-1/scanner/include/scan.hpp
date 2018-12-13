@@ -4,6 +4,6 @@
 #include "token.hpp"
 #include <vector>
 
-std::vector<Pair> scan(std::string s); 
+std::vector<Pair> *scan(std::string s); 
 
 #endif
