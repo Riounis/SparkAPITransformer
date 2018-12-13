@@ -29,36 +29,42 @@ int main(int argc, const char *argv[]) {
     for(std::vector<Pair>::iterator it = tokens->begin(); it!= tokens->end(); it++) {
     	std::cout << it->token; 
     }
+    std::cout << std::endl;
 
     replace_sc(tokens);
     
     for(std::vector<Pair>::iterator it = tokens->begin(); it!= tokens->end(); it++) {
     	std::cout << it->token; 
     }
+    std::cout << std::endl;
     replace_textfile(tokens);
 
     for(std::vector<Pair>::iterator it = tokens->begin(); it!= tokens->end(); it++) {
     	std::cout << it->token; 
     }
-    std::cout << "Replaced textFile" << std::endl;
+    std::cout << std::endl;
+    //std::cout << "Replaced textFile" << std::endl;
     replace_reduce(tokens);
 
     for(std::vector<Pair>::iterator it = tokens->begin(); it!= tokens->end(); it++) {
     	std::cout << it->token; 
     }
-    std::cout << "Replaced Reduce" << std::endl;
+    std::cout << std::endl;
+    //std::cout << "Replaced Reduce" << std::endl;
     replace_reducebykey(tokens);
 
     for(std::vector<Pair>::iterator it = tokens->begin(); it!= tokens->end(); it++) {
     	std::cout << it->token; 
     }
-    std::cout << "Replaced ReduceByKey" << std::endl;
+    std::cout << std::endl;
+    //std::cout << "Replaced ReduceByKey" << std::endl;
     replace_sortby(tokens);
     
     for(std::vector<Pair>::iterator it = tokens->begin(); it!= tokens->end(); it++) {
     	std::cout << it->token; 
     }
-    std::cout << "Replaced SortBy" << std::endl;
+    std::cout << std::endl;
+    //std::cout << "Replaced SortBy" << std::endl;
     std::ofstream out(fn + ".out");
     std::vector<Pair>::iterator it = tokens->begin();
     for (it; it != tokens->end(); ++it) {
